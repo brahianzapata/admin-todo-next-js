@@ -11,5 +11,6 @@ services:
       - POSTGRES_PASSWORD=postgres
     volumes:
       - ./postgres:/var/lib/postgresql/data
+      - ./modulo3:/var/lib/postgresql/data
     ports:
       - 5432:5432

@@ -1,4 +1,5 @@
-// 'use client'
+export const dynamic = 'force-dynamic'; // 'auto' | 'force-dynamic' | 'error' | 'force-static'
+export const revalidate = 0; // false | 0 | number
 
 import { NewTodo, TodosGrid } from "@/todos";
 import prisma from "@/lib/prisma";

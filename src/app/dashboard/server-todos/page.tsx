@@ -1,8 +1,8 @@
-// 'use client'
+export const dynamic = 'force-dynamic'; // 'auto' | 'force-dynamic' | 'error' | 'force-static'
+export const revalidate = 0; // false | 0 | number
 
 import { NewTodo, TodosGrid } from "@/todos";
 import prisma from "@/lib/prisma";
-// import { useEffect } from "react";
 
 export const metadata = {
  title: 'List Todos',
@@ -12,8 +12,8 @@ export const metadata = {
 export default async function ServerTodosPage() {
 
   const todos = await prisma.todo.findMany({ orderBy: { description: 'asc' }});
+  console.log("construidos");
   
-
   return (
     <>
       <span className="text-3xl mb-10">Server Actions</span>
