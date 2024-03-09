@@ -19,6 +19,10 @@ npx prisma generate
 
 7. Ejecutar el SEED para (Crear la base de datos)
 
+## Nota: usuario por defecto
+__email:__ test1@gmail.com
+__password:__ 123458
+
 # prisma comandos
 ```
 npx prisma init

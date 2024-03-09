@@ -3,6 +3,8 @@ export const revalidate = 0; // false | 0 | number
 
 import { NewTodo, TodosGrid } from "@/todos";
 import prisma from "@/lib/prisma";
+import { getServerSessionServer } from "@/auth/auth/auth-actions";
+import { redirect } from "next/navigation";
 
 export const metadata = {
  title: 'List Todos',
@@ -11,8 +13,14 @@ export const metadata = {
 
 export default async function ServerTodosPage() {
 
-  const todos = await prisma.todo.findMany({ orderBy: { description: 'asc' }});
-  console.log("construidos");
+  const user =  await getServerSessionServer();
+
+  if( !user ) redirect('/api/auth/signin');
+
+  const todos = await prisma.todo.findMany({ 
+    where: { userId: user.id },
+    orderBy: { description: 'asc' }
+  });
   
   return (
     <>

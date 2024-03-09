@@ -17,10 +17,11 @@ export const NewTodo = () => {
 
     if( description.trim().length === 0 ) return;
 
-    // await todosApi.createTodo( description );
-    await addTodo(description);
+    // await addTodo(description);
+
+    await todosApi.createTodo(description);
     setDescription('');
-    // router.refresh();
+    router.refresh(); // debido a que lo hacemos por rest
   }
 
   // const deleteCompleted = async() => {
